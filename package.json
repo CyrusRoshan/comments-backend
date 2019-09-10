@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "dev": "NODE_ENV=development npm run build",
+    "dev": "NODE_ENV=development npm run build && cloudworker -d ./dist/worker.development.js",
+    "online-preview": "wrangler preview",
+    "push": "wrangler publish",
     "format": "prettier --write '**/*.{ts,js,css,json,md}'",
     "test:clean": "rm -rf ./transpiled/src ./transpiled/test",
     "test": "npm run test:clean && npm run transpile && mocha --require source-map-support/register --recursive transpiled/test",
@@ -22,6 +24,11 @@
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.6",
+    "wrangler": "^0.0.2"
+  },
+  "dependencies": {
+    "@types/cookie": "^0.3.3",
+    "cookie": "^0.4.0"
   }
 }
