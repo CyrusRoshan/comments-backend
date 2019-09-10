@@ -1,6 +1,5 @@
 import * as cookie from 'cookie';
-
-const DOMAIN = 'cyrusroshan';
+import {DOMAIN} from './env';
 
 // The following code is a modified version of https://gist.github.com/bcnzer/e6a7265fd368fa22ef960b17b9a76488
 

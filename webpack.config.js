@@ -1,7 +1,8 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
-const mode = process.env.NODE_ENV || 'production'
+const mode = process.env.NODE_ENV || 'production';
 
 module.exports = {
   output: {
@@ -14,6 +15,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
     plugins: [],
   },
+  plugins: [new Dotenv()],
   module: {
     rules: [
       {
@@ -23,7 +25,7 @@ module.exports = {
           transpileOnly: true,
         },
       },
-      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+      {enforce: 'pre', test: /\.js$/, loader: 'source-map-loader'},
     ],
   },
-}
+};
