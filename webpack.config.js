@@ -13,9 +13,7 @@ module.exports = {
   mode,
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
-    plugins: [],
   },
-  plugins: [new Dotenv()],
   module: {
     rules: [
       {
@@ -28,4 +26,10 @@ module.exports = {
       {enforce: 'pre', test: /\.js$/, loader: 'source-map-loader'},
     ],
   },
+  plugins: [
+    new Dotenv({
+      systemvars: false,
+      safe: true,
+    }),
+  ],
 };
